@@ -1,0 +1,52 @@
+[
+  {
+    "animal_id": "a1f9c2e0-5d77-4c1f-9b32-12a5d45f1c01",
+    "user_id": "u1001",
+    "species": "Dog",
+    "breed": "Golden Retriever",
+    "gender": "Male",
+    "birth_date": "2020-03-15",
+    "created_at": "2025-08-11T10:00:00Z",
+    "updated_at": "2025-08-11T10:00:00Z"
+  },
+  {
+    "animal_id": "a2b3d4f5-6a78-4e2b-91c2-56d9f23a7b12",
+    "user_id": "u1001",
+    "species": "Cat",
+    "breed": "Siamese",
+    "gender": "Female",
+    "birth_date": "2021-06-10",
+    "created_at": "2025-08-11T10:05:00Z",
+    "updated_at": "2025-08-11T10:05:00Z"
+  },
+  {
+    "animal_id": "a3c4e5f6-7b89-4f2c-84d3-78e9f45a9c23",
+    "user_id": "u1002",
+    "species": "Dog",
+    "breed": "Shiba Inu",
+    "gender": "Male",
+    "birth_date": "2019-11-25",
+    "created_at": "2025-08-11T10:10:00Z",
+    "updated_at": "2025-08-11T10:10:00Z"
+  },
+  {
+    "animal_id": "a4d5e6f7-8c90-4g3d-95e4-89f0a56b0d34",
+    "user_id": "u1003",
+    "species": "Cat",
+    "breed": "Maine Coon",
+    "gender": "Female",
+    "birth_date": "2022-01-30",
+    "created_at": "2025-08-11T10:15:00Z",
+    "updated_at": "2025-08-11T10:15:00Z"
+  },
+  {
+    "animal_id": "a5e6f7g8-9d01-4h4e-a6f5-90g1b67c1e45",
+    "user_id": "u1004",
+    "species": "Dog",
+    "breed": "Border Collie",
+    "gender": "Male",
+    "birth_date": "2020-09-12",
+    "created_at": "2025-08-11T10:20:00Z",
+    "updated_at": "2025-08-11T10:20:00Z"
+  }
+]
