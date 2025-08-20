@@ -1,0 +1,191 @@
+{
+  "info": {
+    "name": "Animalysis Pets API",
+    "description": "CRUD operations for managing pets",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Pet",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": {
+            "name": "Fluffy",
+            "species": "Cat",
+            "age": 3,
+            "ownerId": 123
+          }
+        },
+        "url": "{{base_url}}/api/pets",
+        "description": "Create new pet record"
+      },
+      "response": [
+        {
+          "name": "201 Created",
+          "code": 201,
+          "body": {
+            "id": 1,
+            "name": "Fluffy",
+            "species": "Cat",
+            "age": 3,
+            "ownerId": 123,
+            "createdAt": "2025-08-20T08:53:05.274Z",
+            "updatedAt": "2025-08-20T08:53:05.274Z"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Get Pets",
+      "item": [
+        {
+          "name": "Get All Pets",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": "{{base_url}}/api/pets",
+            "description": "Retrieve all pets"
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "code": 200,
+              "body": [
+                {
+                  "id": 1,
+                  "name": "Fluffy",
+                  "species": "Cat",
+                  "age": 3,
+                  "ownerId": 123,
+                  "createdAt": "2025-08-20T08:53:05.274Z",
+                  "updatedAt": "2025-08-20T08:53:05.274Z"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Get Single Pet",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": "{{base_url}}/api/pets/1",
+            "description": "Retrieve pet by ID"
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "code": 200,
+              "body": {
+                "id": 1,
+                "name": "Fluffy",
+                "species": "Cat",
+                "age": 3,
+                "ownerId": 123,
+                "createdAt": "2025-08-20T08:53:05.274Z",
+                "updatedAt": "2025-08-20T08:53:05.274Z"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Update Pet",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": {
+            "name": "Fluffy Updated",
+            "species": "Cat",
+            "age": 4,
+            "ownerId": 123
+          }
+        },
+        "url": "{{base_url}}/api/pets/1",
+        "description": "Update existing pet"
+      },
+      "response": [
+        {
+          "name": "200 OK",
+          "code": 200,
+          "body": {
+            "id": 1,
+            "name": "Fluffy Updated",
+            "species": "Cat",
+            "age": 4,
+            "ownerId": 123,
+            "createdAt": "2025-08-20T08:53:05.274Z",
+            "updatedAt": "2025-08-20T08:53:05.274Z"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Delete Pet",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": "{{base_url}}/api/pets/1",
+        "description": "Delete pet by ID"
+      },
+      "response": [
+        {
+          "name": "200 OK",
+          "code": 200,
+          "body": {
+            "message": "Pet deleted successfully"
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000"
+    },
+    {
+      "key": "auth_token",
+      "value": "your_supabase_token_here"
+    }
+  ]
+}
