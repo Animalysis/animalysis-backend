@@ -39,15 +39,17 @@ export async function PUT(req: Request, { params }: RouteParams) {
       name: z.string().min(1),
       species: z.string().min(1),
       age: z.number().int().min(0),
-      ownerId: z.number().int().min(1),
+      user_id: z.number().int().min(1),
     });
     const validated = schemaValidator.parse(body);
 
     const updatedPet = await db
       .update(petsTable)
       .set({
-        ...validated,
-        ownerId: validated.ownerId.toString(),
+        name: validated.name,
+        species: validated.species,
+        age: validated.age,
+        user_id: validated.user_id,
       })
       .where(eq(petsTable.id, id))
       .returning();
