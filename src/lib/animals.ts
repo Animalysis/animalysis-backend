@@ -1,4 +1,4 @@
-// JSON 정적 임포트 (Edge에서도 OK)
+// JSON static import (Edge에서도 OK)
 import data from "@/mock/animals.json";
 
 export type Animal = {

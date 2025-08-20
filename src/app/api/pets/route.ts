@@ -1,4 +1,4 @@
-import { db } from "../../../lib/db";
+import { db } from "@/lib/db";
 import { schema } from "../../../../drizzle/schema";
 import { eq } from "drizzle-orm"; // Added missing import
 import { z } from "zod";
