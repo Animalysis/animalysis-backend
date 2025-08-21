@@ -2,7 +2,9 @@ import { pgTable, integer, text, timestamp } from "drizzle-orm/pg-core";
 
 // Define usersTable for foreign key reference
 export const usersTable = pgTable("users", {
-  id: text("id").primaryKey(),
+  id: text("id").primaryKey(), // internal user id
+  clerkId: text("clerk_id").notNull(), // Clerk user id
+  name: text("name").notNull(),
 });
 
 export const petsTable = pgTable("pets", {

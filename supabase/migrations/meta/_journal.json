@@ -43,6 +43,13 @@
       "when": 1755739276142,
       "tag": "0005_cynical_magma",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1755817736643,
+      "tag": "0006_absent_hawkeye",
+      "breakpoints": true
     }
   ]
 }
