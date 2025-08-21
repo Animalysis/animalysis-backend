@@ -15,6 +15,34 @@
       "when": 1755717684548,
       "tag": "0001_thin_naoko",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1755739101714,
+      "tag": "0002_flashy_roland_deschain",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1755739162608,
+      "tag": "0003_rich_scrambler",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1755739181425,
+      "tag": "0004_huge_speed",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1755739276142,
+      "tag": "0005_cynical_magma",
+      "breakpoints": true
     }
   ]
 }
