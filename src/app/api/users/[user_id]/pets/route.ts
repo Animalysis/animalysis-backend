@@ -4,7 +4,6 @@ import { eq } from "drizzle-orm";
 import { z } from "zod";
 import { NextResponse } from "next/server";
 
-const usersTable = schema.usersTable;
 const petsTable = schema.petsTable;
 
 const userIdSchema = z.string();
@@ -19,10 +18,7 @@ const PetResponseSchema = z.object({
 
 export type PetResponse = z.infer<typeof PetResponseSchema>;
 
-export async function GET(
-  req: Request,
-  { params }: { params: { user_id: string } }
-) {
+export async function GET({ params }: { params: { user_id: string } }) {
   try {
     // Validate user_id format
     const validationResult = userIdSchema.safeParse(params.user_id);
