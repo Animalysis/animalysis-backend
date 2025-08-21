@@ -22,10 +22,9 @@
         "body": {
           "mode": "raw",
           "raw": {
-            "name": "Fluffy",
+            "name": "Whiskers",
             "species": "Cat",
-            "age": 3,
-            "ownerId": 123
+            "age": 2
           }
         },
         "url": "{{base_url}}/api/pets",

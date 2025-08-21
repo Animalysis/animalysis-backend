@@ -1,4 +1,4 @@
-import { pgTable, integer, text, timestamp, serial } from "drizzle-orm/pg-core";
+import { pgTable, integer, text, timestamp } from "drizzle-orm/pg-core";
 
 // Define usersTable for foreign key reference
 export const usersTable = pgTable("users", {
