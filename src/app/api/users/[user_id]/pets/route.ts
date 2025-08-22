@@ -18,10 +18,16 @@ const PetResponseSchema = z.object({
 
 export type PetResponse = z.infer<typeof PetResponseSchema>;
 
-export async function GET({ params }: { params: { user_id: string } }) {
+import { NextRequest } from "next/server";
+
+export async function GET(
+  request: NextRequest,
+  { params }: { params: { user_id: string } }
+) {
   try {
-    // Validate user_id format
-    const validationResult = userIdSchema.safeParse(params.user_id);
+    // Extract user_id from params safely
+    const user_id = await params?.user_id;
+    const validationResult = userIdSchema.safeParse(user_id);
     if (!validationResult.success) {
       return NextResponse.json(
         {
@@ -32,26 +38,20 @@ export async function GET({ params }: { params: { user_id: string } }) {
       );
     }
 
-    const user = await db.transaction(async (tx) => {
-      const pets = await tx
-        .select()
-        .from(petsTable)
-        .where(eq(petsTable.user_id, params.user_id));
+    const pets = await db
+      .select({
+        id: petsTable.id,
+        name: petsTable.name,
+        species: petsTable.species,
+        breed: petsTable.breed,
+        weight: petsTable.weight,
+        age: petsTable.age,
+        user_id: petsTable.user_id,
+      })
+      .from(petsTable)
+      .where(eq(petsTable.user_id, user_id));
 
-      return { pets };
-    });
-
-    if (!user) {
-      return NextResponse.json(
-        {
-          code: "NOT_FOUND",
-          message: "User not found",
-        },
-        { status: 404 }
-      );
-    }
-
-    return NextResponse.json({ data: user.pets });
+    return NextResponse.json(pets);
   } catch (error) {
     console.error("Database error:", error);
     return NextResponse.json(

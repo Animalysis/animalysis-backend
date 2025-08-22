@@ -28,10 +28,14 @@ const postHandler = async (req: NextRequest) => {
 export const POST = postHandler;
 // ...existing code...
 
-// Example GET for user info
+// Example GET for user info (no authentication)
 const getHandler = async (req: NextRequest) => {
-  // Authenticate and return user info
-  return NextResponse.json({});
+  // For now, just return the first user in the database (for demo purposes)
+  const user = await db.select().from(usersTable);
+  if (!user.length) {
+    return NextResponse.json({ error: "User not found" }, { status: 404 });
+  }
+  return NextResponse.json({ id: user[0].id, name: user[0].name });
 };
 
 export const GET = getHandler;

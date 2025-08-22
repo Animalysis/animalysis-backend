@@ -1,4 +1,10 @@
 import { middleware as cors } from "@/middleware/cors";
-// import { authMiddleware } from "@/middleware/auth"; // Uncomment if you want to use auth globally
 
-export { cors as middleware };
+import { NextRequest } from "next/server";
+
+export async function middleware(req: NextRequest) {
+  // First apply CORS
+  const corsRes = cors(req);
+  if (corsRes) return corsRes;
+  return null;
+}

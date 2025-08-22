@@ -5,6 +5,7 @@ import type { InsertPet } from "../../../../drizzle/schema";
 import { z } from "zod";
 import { NextResponse } from "next/server";
 import { generate_new_id } from "../_utils/util";
+import { petResponseSchema } from "../_utils/schema";
 
 const petsTable = schema.petsTable;
 
@@ -15,6 +16,8 @@ export async function POST(req: Request) {
       .object({
         name: z.string(),
         species: z.string(),
+        breed: z.string(),
+        weight: z.coerce.number().positive(),
         age: z.coerce
           .number({
             invalid_type_error: "Age must be a valid number",
@@ -32,6 +35,8 @@ export async function POST(req: Request) {
         .values({
           name: validated.name,
           species: validated.species,
+          breed: validated.breed,
+          weight: validated.weight,
           age: validated.age,
           user_id: validated.user_id,
           id: generate_new_id(),
@@ -70,7 +75,7 @@ export async function POST(req: Request) {
 export async function GET() {
   try {
     const petsList = await db.select().from(petsTable);
-    return NextResponse.json({ data: petsList });
+    return NextResponse.json(petResponseSchema.array().parse(petsList));
   } catch (error) {
     console.error("Database error:", error);
     return NextResponse.json(
