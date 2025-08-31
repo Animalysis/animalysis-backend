@@ -3,7 +3,6 @@ import {
   integer,
   text,
   timestamp,
-  numeric,
 } from "drizzle-orm/pg-core";
 
 // Define usersTable for foreign key reference
