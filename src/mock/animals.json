@@ -1,0 +1,57 @@
+[
+  {
+    "id": "a1f9c2e0-5d77-4c1f-9b32-12a5d45f1c01",
+    "name": "Buddy",
+    "species": "Dog",
+    "age": 5,
+    "breed": "Golden Retriever",
+    "weight": 32,
+    "user_id": "u1001",
+    "created_at": "2025-08-11T10:00:00Z",
+    "updated_at": "2025-08-11T10:00:00Z"
+  },
+  {
+    "id": "a2b3d4f5-6a78-4e2b-91c2-56d9f23a7b12",
+    "name": "Whiskers",
+    "species": "Cat",
+    "age": 4,
+    "breed": "Siamese",
+    "weight": 4,
+    "user_id": "u1001",
+    "created_at": "2025-08-11T10:05:00Z",
+    "updated_at": "2025-08-11T10:05:00Z"
+  },
+  {
+    "id": "a3c4e5f6-7b89-4f2c-84d3-78e9f45a9c23",
+    "name": "Kenji",
+    "species": "Dog",
+    "age": 5,
+    "breed": "Shiba Inu",
+    "weight": 9,
+    "user_id": "u1002",
+    "created_at": "2025-08-11T10:10:00Z",
+    "updated_at": "2025-08-11T10:10:00Z"
+  },
+  {
+    "id": "a4d5e6f7-8c90-4g3d-95e4-89f0a56b0d34",
+    "name": "Luna",
+    "species": "Cat",
+    "age": 3,
+    "breed": "Maine Coon",
+    "weight": 6,
+    "user_id": "u1003",
+    "created_at": "2025-08-11T10:15:00Z",
+    "updated_at": "2025-08-11T10:15:00Z"
+  },
+  {
+    "id": "a5e6f7g8-9d01-4h4e-a6f5-90g1b67c1e45",
+    "name": "Dash",
+    "species": "Dog",
+    "age": 4,
+    "breed": "Border Collie",
+    "weight": 18,
+    "user_id": "u1004",
+    "created_at": "2025-08-11T10:20:00Z",
+    "updated_at": "2025-08-11T10:20:00Z"
+  }
+]
