@@ -6,8 +6,12 @@ import { generate_new_id } from "../_utils/util";
 
 // This route creates a user entry when Clerk authentication succeeds
 const postHandler = async (req: NextRequest) => {
-  const { clerkId, name } = await req.json();
+  const body = await req.json();
+  console.log("POST /api/users received:", JSON.stringify(body, null, 2));
+  
+  const { clerkId, name } = body;
   const id = generate_new_id();
+  
   // Check if user exists
   const existing = await db
     .select()
@@ -15,6 +19,7 @@ const postHandler = async (req: NextRequest) => {
     .where(eq(usersTable.clerkId, clerkId));
   if (existing.length === 0) {
     await db.insert(usersTable).values({ id, clerkId, name });
+    console.log(`Created user: ${name} with Clerk ID: ${clerkId}`);
     return NextResponse.json({ success: true, created: true, name });
   }
   // If user exists, return their name
@@ -31,11 +36,13 @@ export const POST = postHandler;
 // Example GET for user info (no authentication)
 const getHandler = async (req: NextRequest) => {
   // For now, just return the first user in the database (for demo purposes)
-  const user = await db.select().from(usersTable);
-  if (!user.length) {
+  const users = await db.select().from(usersTable);
+  console.log("GET /api/users - Found users:", JSON.stringify(users, null, 2));
+  
+  if (!users.length) {
     return NextResponse.json({ error: "User not found" }, { status: 404 });
   }
-  return NextResponse.json({ id: user[0].id, name: user[0].name });
+  return NextResponse.json({ id: users[0].id, name: users[0].name });
 };
 
 export const GET = getHandler;
