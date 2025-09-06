@@ -15,12 +15,13 @@ const postHandler = async (req: NextRequest) => {
     .where(eq(usersTable.clerkId, clerkId));
   if (existing.length === 0) {
     await db.insert(usersTable).values({ id, clerkId, name });
-    return NextResponse.json({ success: true, created: true, name });
+    return NextResponse.json({ success: true, created: true, id, name });
   }
-  // If user exists, return their name
+  // If user exists, return their name and internal ID
   return NextResponse.json({
     success: true,
     created: false,
+    id: existing[0]?.id,
     name: existing[0]?.name,
   });
 };

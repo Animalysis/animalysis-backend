@@ -5,8 +5,6 @@ import { z } from "zod";
 import { NextResponse } from "next/server";
 import { generate_new_id } from "../../../_utils/util";
 
-import { mockPets } from "@/mock/mockPets";
-
 const petsTable = schema.petsTable;
 
 const userIdSchema = z.string();
@@ -113,8 +111,7 @@ export async function GET(
             .from(petsTable)
             .where(eq(petsTable.user_id, user_id));
 
-        return NextResponse.json(mockPets);
-        // return NextResponse.json(pets);
+        return NextResponse.json(pets);
     } catch (error) {
         console.error("Database error:", error);
         return NextResponse.json(
